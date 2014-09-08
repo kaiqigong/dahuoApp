@@ -41,11 +41,18 @@ angular.module 'starter', [
     controller: 'AppCtrl'
 
   .state 'app.main',
-    url: '/main',
+    url: '/main'
     views:
       menuContent :
         templateUrl: 'templates/main.html'
         controller: 'EaterylistCtrl'
+
+  .state 'app.eateryDetail',
+    url: '/eatery/:eateryId'
+    views:
+      menuContent :
+        templateUrl: 'templates/eaterydetail.html'
+        controller: 'EaterydetailCtrl'
 
   .state 'app.search',
     url: '/search',

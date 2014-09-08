@@ -2,14 +2,14 @@
 
   <ion-pane ion-side-menu-content>
     <ion-nav-bar class="bar-stable nav-title-slide-ios7">
-      <ion-nav-back-button class="button-clear"><i class="icon ion-ios7-arrow-back"></i> Back</ion-nav-back-button>
+      <ion-nav-back-button class="button-clear"><i class="icon ion-ios7-arrow-back"></i> 返回</ion-nav-back-button>
     </ion-nav-bar>
     <ion-nav-view name="menuContent" animation="slide-left-right"></ion-nav-view>
   </ion-pane>
 
   <ion-side-menu side="left">
     <header class="bar bar-header bar-stable">
-      <h1 class="title">Left</h1>
+      <h1 class="title">搭伙</h1>
     </header>
     <ion-content class="has-header">
       <ion-list>
@@ -31,4 +31,31 @@
       </ion-list>
     </ion-content>
   </ion-side-menu>
+
+  <ion-side-menu side="right">
+    <header class="bar bar-header bar-stable">
+      <h1 class="title">搜索</h1>
+    </header>
+    <ion-content class="has-header">
+      <label class="item item-input">
+        <i class="icon ion-search placeholder-icon"></i>
+        <input type="text" placeholder="Search">
+      </label>
+      <ion-list>
+        <ion-item nav-clear menu-close >
+          search-histroy1
+        </ion-item>
+        <ion-item nav-clear menu-close>
+          search-histroy2
+        </ion-item>
+        <ion-item nav-clear menu-close>
+          search-histroy3
+        </ion-item>
+        <ion-item nav-clear menu-close>
+          search-histroy4
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-side-menu>
+
 </ion-side-menus>

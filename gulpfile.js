@@ -26,7 +26,7 @@ bowerPath = bowerFiles({
 });
 gulp.task('default', ['sass', 'coffee', 'index', 'watch']);
 
-gulp.task('index', function () {
+gulp.task('index', function (done) {
   console.log(bowerPath);
   gulp.src(paths.index)
   .pipe(inject(
@@ -37,7 +37,8 @@ gulp.task('index', function () {
     gulp.src(bowerPath)
     , {name: 'bower', relative: true, ignorePath: '/www/', addRootSlash: false}
     ))
-  .pipe(gulp.dest('./www'));
+  .pipe(gulp.dest('./www'))
+  .on('end', done);
 });
 
 gulp.task('sass', function(done) {
@@ -70,9 +71,7 @@ gulp.task('coffee', function(done) {
 
 gulp.task('watch', function() {
   gulp.watch(paths.sass, ['sass']);
-  gulp.watch('./www/css/', ['index']);
   gulp.watch(paths.coffee, ['coffee']);
-  gulp.watch('./www/js/', ['index']);
   gulp.watch([paths.index, 'bower.json'],['index']);
 });
 

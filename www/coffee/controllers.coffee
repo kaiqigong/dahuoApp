@@ -37,7 +37,7 @@ angular.module('starter.controllers', [])
       $scope.closeLogin()
     , 1000)
 
-.controller 'EaterylistCtrl', ($scope, $http)->
+.controller 'EaterylistCtrl', ($scope, $http, $state)->
   s = $scope
   angular.extend s,
     eateries: undefined
@@ -46,11 +46,44 @@ angular.module('starter.controllers', [])
       $http.get 'api/eateries'
       .success (eateries)->
         eateries.forEach (eatery)->
-          eatery.$shifts = [{'time': '今天19:00'},{'time': '明天19:00'},{'time': '11月10号19:00'}]
+          eatery.likes = 12
+          eatery.eats = 20
+          eatery.$shifts = [{'time': '今天19:00',capacity: 5, orders: [1,2,3],price: 20},
+          {'time': '明天19:00',capacity: 5, orders: [1,2],price: 20},
+          {'time': '9月4号19:00',capacity: 5, orders: [1,2,3,4,5]},
+          {'time': '11月10号19:00',capacity: 5, orders: [1,2,3,4]},price: 20]
           eatery.$shift = eatery.$shifts[0]
         s.eateries = eateries
 
+    viewEateryDetail: (eatery)->
+      $state.go('app.eateryDetail', {eateryId: eatery._id})
+
+    onJoin: ($event, eatery)->
+      $event.stopPropagation()
+      # Goto payment page
+
   s.getEateries()
+
+
+.controller 'EaterydetailCtrl', ($scope, $http, $state)->
+  s = $scope
+  angular.extend s,
+    eatery: undefined
+
+    getEatery: ()->
+      $http.get 'api/eateries/' + $state.params.eateryId
+      .success (eatery)->
+        eatery.likes = 12
+        eatery.eats = 20
+        eatery.$shifts = [{'time': '今天19:00',capacity: 5, orders: [1,2,3],price: 20},
+        {'time': '明天19:00',capacity: 5, orders: [1,2],price: 30},
+        {'time': '9月4号19:00',capacity: 5, orders: [1,2,3,4,5],price: 20},
+        {'time': '11月10号19:00',capacity: 5, orders: [1,2,3,4]},price: 20]
+        eatery.$shift = eatery.$shifts[0]
+        s.eatery = eatery
+
+  s.getEatery()
+
 
 .controller 'PlaylistsCtrl', ($scope) ->
   $scope.playlists = [

@@ -35,6 +35,6 @@ angular.module 'starter.directives', []
 .directive 'eateryCard', ()->
   restrict: 'A'
   scope:
-    eatery:'='
+    eatery: '='
   templateUrl: 'templates/eatery-card.html'
 

@@ -1,34 +1,37 @@
 <div class="card eatery-card">
 
   <div class="item item-body">
-    <div class="eatery-image" src-key="eatery.background" src-attr="background-image">
+    <div class="eatery-image" src-key="eatery.background" src-attr="background-image" on-tap="$parent.viewEateryDetail(eatery)">
+      <p class="eatery-price">
+        {{eatery.$shift.price? '¥'+eatery.$shift.price+'每位':'免费'}}
+      </p>
       <p class="eatery-capacity">
         {{eatery.$shift.capacity - eatery.$shift.orders.length||0}}剩余
       </p>
     </div>
-    <h3 class="eatery-name clearfix">
+    <h3 class="eatery-name clearfix" on-tap="$parent.viewEateryDetail(eatery)">
       {{eatery.name}}
       <small>
-        <a href="#" class="subdued">1人喜欢</a>
-        <a href="#" class="subdued">5人吃过</a>
+        <a href="#" class="subdued">{{eatery.likes}}人喜欢</a>
+        <a href="#" class="subdued">{{eatery.eats}}人吃过</a>
       </small>
     </h3>
-    <p>
+    <p on-tap="$parent.viewEateryDetail(eatery)">
       {{eatery.info}}
       <a tooltip="{{eatery.postBy.name}}">@{{eatery.postBy.name}}</a>
     </p>
   </div>
 
   <div class="item tabs tabs-secondary tabs-icon-left">
-    <a class="tab-item time" href="#">
+    <a class="tab-item time">
       <select ng-model="eatery.$shift" ng-options="shift.time for shift in eatery.$shifts">
       </select>
     </a>
-    <a class="tab-item location" href="#">
+    <a class="tab-item location">
       <i class="icon ion-ios7-location-outline"></i>
       四平路
     </a>
-    <a class="tab-item join balanced-bg" href="#">
+    <a class="tab-item join balanced-bg" ng-disabled="eatery.$shift.capacity - eatery.$shift.orders.length <= 0" on-tap="$parent.onJoin($event, eatery)">
       我要搭伙
     </a>
   </div>
