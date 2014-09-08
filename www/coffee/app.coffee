@@ -11,6 +11,16 @@ angular.module 'starter', [
   'starter.filters'
   'starter.services'
 ]
+.constant 'configs',
+  baseUrl: 'http://localhost:9000/'
+.config ($httpProvider) ->
+  $httpProvider.interceptors.push 'urlInterceptor'
+
+.factory 'urlInterceptor', (configs) ->
+  # Add authorization token to headers
+  request: (config) ->
+    config.url = configs.baseUrl + config.url if /^(|\/)(api|auth)/.test config.url
+    config
 
 .run ($ionicPlatform) ->
   $ionicPlatform.ready ->
@@ -29,6 +39,13 @@ angular.module 'starter', [
     abstract: true,
     templateUrl: 'templates/menu.html',
     controller: 'AppCtrl'
+
+  .state 'app.main',
+    url: '/main',
+    views:
+      menuContent :
+        templateUrl: 'templates/main.html'
+        controller: 'EaterylistCtrl'
 
   .state 'app.search',
     url: '/search',
@@ -57,4 +74,4 @@ angular.module 'starter', [
         controller: 'PlaylistCtrl'
 
   # if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise '/app/playlists'
+  $urlRouterProvider.otherwise '/app/main'

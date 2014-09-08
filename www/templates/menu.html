@@ -13,6 +13,9 @@
     </header>
     <ion-content class="has-header">
       <ion-list>
+        <ion-item nav-clear menu-close ng-repeat="item in menuItems" ui-sref="{{item.name}}">
+          {{item.title}}
+        </ion-item>
         <ion-item nav-clear menu-close ng-click="login()">
           Login
         </ion-item>

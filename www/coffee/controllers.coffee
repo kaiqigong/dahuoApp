@@ -1,9 +1,18 @@
 angular.module('starter.controllers', [])
 
 .controller 'AppCtrl', ($scope, $ionicModal, $timeout) ->
+  $scope.menuItems = [
+    {
+      name: 'app.main'
+      title: '我是吃货'
+    }
+    {
+      name: 'app.chief'
+      title: '我是大厨'
+    }
+  ]
   # Form data for the login modal
   $scope.loginData = {}
-  $scope.html = '<p>This is a p tag</p>'
   # Create the login modal that we will use later
   $ionicModal.fromTemplateUrl('templates/login.html', {
     scope: $scope
@@ -27,6 +36,18 @@ angular.module('starter.controllers', [])
     $timeout(() ->
       $scope.closeLogin()
     , 1000)
+
+.controller 'EaterylistCtrl', ($scope, $http)->
+  s = $scope
+  angular.extend s,
+    eateries: undefined
+
+    getEateries: ()->
+      $http.get 'api/eateries'
+      .success (eateries)->
+        s.eateries = eateries
+
+  s.getEateries()
 
 .controller 'PlaylistsCtrl', ($scope) ->
   $scope.playlists = [
