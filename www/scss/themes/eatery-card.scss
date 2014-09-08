@@ -1,0 +1,107 @@
+.eatery-card{
+  .eatery-image{
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    margin: -16px -16px 0 -16px;
+    height: 180px;
+    overflow: hidden;
+    .eatery-capacity{
+      position: absolute;
+      right: 0;
+      bottom: 16px;
+      text-align: right;
+      padding: 8px;
+      font-size: 14px;
+      background: rgba(255,255,255,0.9);
+      @include box-shadow(0px 0px 5px 3px rgba(0, 0, 0, 0.3));
+    }
+  }
+  .eatery-name{
+    small{
+      float: right;
+      a.subdued{
+        padding-right: 0px;
+      }
+    }
+  }
+  .tabs{
+    .tab-item{
+      border-right: 1px solid $bar-default-border;
+      &:last-child{
+        border-right: none;
+        @media (min--moz-device-pixel-ratio: 1.5),
+        (-webkit-min-device-pixel-ratio: 1.5),
+        (min-device-pixel-ratio: 1.5),
+        (min-resolution: 144dpi),
+        (min-resolution: 1.5dppx) {
+          border-right: none !important;
+          background-image:none !important;
+        }
+      }
+      @media (min--moz-device-pixel-ratio: 1.5),
+      (-webkit-min-device-pixel-ratio: 1.5),
+      (min-device-pixel-ratio: 1.5),
+      (min-resolution: 144dpi),
+      (min-resolution: 1.5dppx) {
+        border-right: none !important;
+        background-image: linear-gradient(90deg, $bar-default-border, $bar-default-border 50%, transparent 50%);
+        background-position: right;
+        background-size: 1px 100%;
+        background-repeat: no-repeat;
+      }
+    }
+    .time{
+      position: relative;
+      select {
+        @include appearance(none);
+        position: absolute;
+        left: 0px;
+        width: 100%;
+        padding: 16px 10px 16px 10px;
+        border: none;
+        background: transparent;
+        color: #333;
+
+        // hack to hide default dropdown arrow in FF
+        text-indent: .01px;
+        text-overflow: ellipsis;
+
+        white-space: nowrap;
+        font-size: $font-size-base;
+
+        cursor: pointer;
+      }
+
+      select::-ms-expand {
+        // hide default dropdown arrow in IE
+        display: none;
+      }
+
+      option {
+        direction: ltr;
+      }
+
+      &:after {
+        position: absolute;
+        top: 50%;
+        right: 3px;
+        width: 0;
+        height: 0;
+        border-top: 5px solid;
+        border-right: 5px solid rgba(0, 0, 0, 0);
+        border-left: 5px solid rgba(0, 0, 0, 0);
+        color: #999;
+        content: "";
+        pointer-events: none;
+      }
+    }
+    .location{
+
+    }
+    .join{
+      color: $light;
+      font-size: 18px;
+    }
+  }
+}

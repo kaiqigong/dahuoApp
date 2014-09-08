@@ -12,7 +12,7 @@ angular.module 'starter', [
   'starter.services'
 ]
 .constant 'configs',
-  baseUrl: 'http://localhost:9000/'
+  baseUrl: 'http://192.168.2.109:9000/'
 .config ($httpProvider) ->
   $httpProvider.interceptors.push 'urlInterceptor'
 

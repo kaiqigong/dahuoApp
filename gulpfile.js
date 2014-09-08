@@ -10,7 +10,6 @@ coffee = require('gulp-coffee'),
 inject = require("gulp-inject"),
 angularFilesort = require('gulp-angular-filesort'),
 bowerFiles = require('main-bower-files'),
-livereload = require('gulp-livereload'),
 base = {
   www: './www/'
 },
@@ -70,11 +69,11 @@ gulp.task('coffee', function(done) {
 });
 
 gulp.task('watch', function() {
-  livereload.listen();
   gulp.watch(paths.sass, ['sass']);
+  gulp.watch('./www/css/', ['index']);
   gulp.watch(paths.coffee, ['coffee']);
+  gulp.watch('./www/js/', ['index']);
   gulp.watch([paths.index, 'bower.json'],['index']);
-  gulp.watch('./www/css/**/*.css').on('change', livereload.changed);
 });
 
 gulp.task('install', ['git-check'], function() {

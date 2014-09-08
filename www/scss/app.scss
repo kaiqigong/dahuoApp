@@ -20,11 +20,14 @@ $dark:                            #444 !default;
 // The path for our ionicons font files, relative to the built CSS in www/css
 $ionicons-font-path: "../lib/ionic/fonts" !default;
 
+$balanced: #11AA11;
+
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
 
 // inject:scss
 @import "main.scss";
 @import "themes/button.scss";
+@import "themes/eatery-card.scss";
 // endinject
 

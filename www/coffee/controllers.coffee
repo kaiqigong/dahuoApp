@@ -45,6 +45,9 @@ angular.module('starter.controllers', [])
     getEateries: ()->
       $http.get 'api/eateries'
       .success (eateries)->
+        eateries.forEach (eatery)->
+          eatery.$shifts = [{'time': '今天19:00'},{'time': '明天19:00'},{'time': '11月10号19:00'}]
+          eatery.$shift = eatery.$shifts[0]
         s.eateries = eateries
 
   s.getEateries()
