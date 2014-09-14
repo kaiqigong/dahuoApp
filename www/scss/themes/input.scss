@@ -1,0 +1,24 @@
+.editable-text{
+  position: relative;
+  input,
+  textarea{
+    background: transparent;
+    border: none;
+    outline: none;
+    position: relative;
+    &:focus{
+      @include box-shadow(0px 0px 5px 3px rgba( $positive, .3 ));
+      background: #FFFFFF;
+      color: #000000;
+      z-index: 10;
+    }
+  }
+  &:before{
+    content: '\f2bf';
+    position: absolute;
+    font-family: "Ionicons";
+    right: 0;
+    top:0;
+    opacity: 0.7;
+  }
+}

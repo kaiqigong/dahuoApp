@@ -2,8 +2,6 @@
 # http://git-scm.com/docs/gitignore
 
 node_modules/
-platforms/
-plugins/
 www/js
 www/lib
 www/css
