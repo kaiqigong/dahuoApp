@@ -30,6 +30,8 @@
           </a>
         </p>
       </div>
+    </div>
+    <div class="list card">
       <div class="item item-button-right">
         <h2>招牌菜</h2>
         <button class="button button-outline button-positive" on-tap="addDish()">
@@ -56,7 +58,7 @@
         </div>
       </div>
       <div class="item">
-        <h3>关于厨师</h3>
+        <h3>关于我</h3>
       </div>
       <div class="item item-avatar">
         <img src-key="eatery.postBy.avatar">
@@ -80,8 +82,19 @@
     </div>
 
   </ion-content>
+  <div class="tabs tabs-icon-only">
+    <a class="tab-item">
+      <i class="icon ion-ios7-home"></i>
+    </a>
+    <a class="tab-item">
+      <i class="icon ion-ios7-calendar"></i>
+    </a>
+    <a class="tab-item">
+      <i class="icon ion-ios7-chatboxes"></i>
+    </a>
+  </div>
 
-  <div class="bar bar-footer">
+  <!-- <div class="bar bar-footer">
     <div class="dh dh-select">
       <select ng-model="eatery.$shift" class="dh" ng-options="shift.time for shift in eatery.$shifts">
       </select>
@@ -92,6 +105,6 @@
     >
       我要搭伙
     </button>
-  </div>
+  </div> -->
 
 </ion-view>

@@ -206,7 +206,8 @@ angular.module('starter.controllers', []).controller('AppCtrl', function($scope,
         quality: 75,
         targetWidth: 320,
         targetHeight: 320,
-        saveToPhotoAlbum: false
+        saveToPhotoAlbum: true,
+        destinationType: navigator.camera.DestinationType.FILE_URI
       });
     },
     changeDishPhoto: function(dish) {
@@ -221,7 +222,8 @@ angular.module('starter.controllers', []).controller('AppCtrl', function($scope,
         quality: 75,
         targetWidth: 320,
         targetHeight: 320,
-        saveToPhotoAlbum: false
+        saveToPhotoAlbum: true,
+        destinationType: navigator.camera.DestinationType.FILE_URI
       });
     },
     saveDish: function(dish) {

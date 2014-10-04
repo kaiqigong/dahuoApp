@@ -169,7 +169,8 @@ angular.module('starter.controllers', [])
         quality: 75,
         targetWidth: 320,
         targetHeight: 320,
-        saveToPhotoAlbum: false
+        saveToPhotoAlbum: true
+        destinationType: navigator.camera.DestinationType.FILE_URI
       }
 
 
@@ -185,7 +186,8 @@ angular.module('starter.controllers', [])
         quality: 75,
         targetWidth: 320,
         targetHeight: 320,
-        saveToPhotoAlbum: false
+        saveToPhotoAlbum: true
+        destinationType: navigator.camera.DestinationType.FILE_URI
       }
 
     saveDish: (dish)->

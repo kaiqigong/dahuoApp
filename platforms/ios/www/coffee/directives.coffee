@@ -26,7 +26,7 @@ angular.module 'starter.directives', []
       if !key or key is ''
         return
       # key start with //, http, / should be a relative or absolute path
-      else if /^(\/\/|\/|http:|https:)/.test(key)
+      else if /^(\/\/|\/|http:|https:|file:|ftp:)/.test(key)
         setSource(key)
       else
         suffix = $scope.suffix ? ''

@@ -62,7 +62,7 @@ angular.module 'starter', [
     url: '/chiefHome'
     views:
       menuContent :
-        templateUrl: 'templates/chief-home.html'
+        templateUrl: 'templates/chief.html'
         controller: 'ChiefHomeCtrl'
 
   .state 'app.search',

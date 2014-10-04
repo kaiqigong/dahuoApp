@@ -28,7 +28,7 @@ angular.module('starter.directives', []).directive('directiveName', function() {
         var suffix, _ref;
         if (!key || key === '') {
 
-        } else if (/^(\/\/|\/|http:|https:)/.test(key)) {
+        } else if (/^(\/\/|\/|http:|https:|file:|ftp:)/.test(key)) {
           return setSource(key);
         } else {
           suffix = (_ref = $scope.suffix) != null ? _ref : '';
