@@ -7,7 +7,7 @@ angular.module('starter.controllers', [])
       title: '我是吃货'
     }
     {
-      name: 'app.chiefHome'
+      name: 'app.chief.home'
       title: '我是大厨'
     }
   ]

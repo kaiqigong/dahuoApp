@@ -25,7 +25,7 @@ angular.module 'starter.directives', []
     $scope.$watch 'srcKey',(key) ->
       if !key or key is ''
         return
-      # key start with //, http, / should be a relative or absolute path
+      # key start with //, http, file, / should be a relative or absolute path
       else if /^(\/\/|\/|http:|https:|file:|ftp:)/.test(key)
         setSource(key)
       else

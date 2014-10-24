@@ -7,7 +7,7 @@ angular.module('starter.controllers', [])
       title: '我是吃货'
     }
     {
-      name: 'app.chiefHome'
+      name: 'app.chief.home'
       title: '我是大厨'
     }
   ]
@@ -170,7 +170,7 @@ angular.module('starter.controllers', [])
         targetWidth: 320,
         targetHeight: 320,
         saveToPhotoAlbum: true
-        destinationType: navigator.camera.DestinationType.FILE_URI
+        destinationType: navigator.camera.DestinationType?.FILE_URI
       }
 
 
@@ -187,7 +187,7 @@ angular.module('starter.controllers', [])
         targetWidth: 320,
         targetHeight: 320,
         saveToPhotoAlbum: true
-        destinationType: navigator.camera.DestinationType.FILE_URI
+        destinationType: navigator.camera.DestinationType?.FILE_URI
       }
 
     saveDish: (dish)->

@@ -4,7 +4,7 @@ angular.module('starter.controllers', []).controller('AppCtrl', function($scope,
       name: 'app.main',
       title: '我是吃货'
     }, {
-      name: 'app.chiefHome',
+      name: 'app.chief.home',
       title: '我是大厨'
     }
   ];
@@ -194,6 +194,7 @@ angular.module('starter.controllers', []).controller('AppCtrl', function($scope,
       return this.newComment.content = '';
     },
     getPhoto: function() {
+      var _ref;
       return Camera.getPicture().then(function(imageURI) {
         s.eatery.$newImage = imageURI;
         s.eatery.background = s.eatery.$newImage;
@@ -207,10 +208,11 @@ angular.module('starter.controllers', []).controller('AppCtrl', function($scope,
         targetWidth: 320,
         targetHeight: 320,
         saveToPhotoAlbum: true,
-        destinationType: navigator.camera.DestinationType.FILE_URI
+        destinationType: (_ref = navigator.camera.DestinationType) != null ? _ref.FILE_URI : void 0
       });
     },
     changeDishPhoto: function(dish) {
+      var _ref;
       return Camera.getPicture().then(function(imageURI) {
         dish.image = imageURI;
         return $http.put('api/dishes/' + dish._id, {
@@ -223,7 +225,7 @@ angular.module('starter.controllers', []).controller('AppCtrl', function($scope,
         targetWidth: 320,
         targetHeight: 320,
         saveToPhotoAlbum: true,
-        destinationType: navigator.camera.DestinationType.FILE_URI
+        destinationType: (_ref = navigator.camera.DestinationType) != null ? _ref.FILE_URI : void 0
       });
     },
     saveDish: function(dish) {

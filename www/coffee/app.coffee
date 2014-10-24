@@ -58,12 +58,25 @@ angular.module 'starter', [
         templateUrl: 'templates/eaterydetail.html'
         controller: 'EaterydetailCtrl'
 
-  .state 'app.chiefHome',
-    url: '/chiefHome'
+  .state 'app.chief',
+    url: '/chief'
+    abstract: true
     views:
       menuContent :
         templateUrl: 'templates/chief.html'
         controller: 'ChiefHomeCtrl'
+
+  .state 'app.chief.home',
+    url: ''
+    templateUrl: 'templates/chief-home.html'
+
+  .state 'app.chief.comments',
+    url: '/comments'
+    templateUrl: 'templates/chief-comments.html'
+
+  .state 'app.chief.schedules',
+    url: '/schedules'
+    templateUrl: 'templates/chief-schedules.html'
 
   .state 'app.search',
     url: '/search',

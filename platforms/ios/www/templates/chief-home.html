@@ -1,97 +1,61 @@
-<ion-view title="我的厨房" class="chief-home">
-  <!-- <ion-nav-buttons side="left">
-  </ion-nav-buttons> -->
-  <ion-nav-buttons side="left">
-    <button menu-toggle="left" class="button button-icon icon ion-navicon"></button>
-  </ion-nav-buttons>
-  <ion-content class="has-header" style="margin-bottom: 40px;">
-    <div class="list card">
-      <div class="item">
-        <h2>厨房描述</h2>
-      </div>
-      <div class="item">
-        <div class="editable-text">
-          <input ng-model="eatery.name" ng-blur="patchEatery('name')">
-        </div>
-      </div>
-      <div class="item item-body">
-        <img class="full-image" src-key="eatery.background">
-        <a class="btn-ovarlay change-background" on-tap="getPhoto()">
-          <i class="icon ion-ios7-camera"></i>
-        </a>
-
-        <div class="editable-text">
-          <textarea msd-elastic ng-model="eatery.info" ng-blur="patchEatery('info')"></textarea>
-        </div>
-        <p>
-          <a href class="subdued" ng-click="gotoComments()">
-            <i class="icon ion-ios7-chatboxes"></i>
-            {{eatery.$comments.length||0}} 评论
-          </a>
-        </p>
-      </div>
-      <div class="item item-button-right">
-        <h2>招牌菜</h2>
-        <button class="button button-outline button-positive" on-tap="addDish()">
-          <i class="icon ion-plus"></i>
-        </button>
-      </div>
-      <div class="item item-body" ng-repeat="dish in eatery.dishes">
-        <img class="full-image" src-key="dish.image">
-        <a class="btn-ovarlay change-background" on-tap="changeDishPhoto(dish)">
-          <i class="icon ion-ios7-camera"></i>
-        </a>
-        <h2>
-          <div class="editable-text">
-            <textarea msd-elastic ng-model="dish.name" ng-blur="saveDish(dish)"></textarea>
-          </div>
-        </h2>
-        <p>
-          <div class="editable-text">
-            <textarea msd-elastic ng-model="dish.info" ng-blur="saveDish(dish)"></textarea>
-          </div>
-        </p>
-        <div class="padding">
-          <button class="button button-block button-assertive" on-tap="deleteDish(dish)">删除菜肴</button>
-        </div>
-      </div>
-      <div class="item">
-        <h3>关于厨师</h3>
-      </div>
-      <div class="item item-avatar">
-        <img src-key="eatery.postBy.avatar">
-        <h2>{{eatery.postBy.name}}</h2>
-      </div>
-      <div class="item" id="comments">
-        <h3>网友评论</h3>
-        <div class="comment" ng-repeat="comment in eatery.$comments">
-          {{comment.content}}
-        </div>
-      </div>
-      <label class="item item-input">
-        <textarea placeholder="Comments" ng-model="newComment.content"></textarea>
-      </label>
-      <div class="padding">
-        <button class="button button-block button-positive"
-        on-tap="sendComment()">
-          评论
-        </button>
-      </div>
+<div class="list card">
+  <div class="item">
+    <h2>厨房描述</h2>
+  </div>
+  <div class="item">
+    <div class="editable-text">
+      <input ng-model="eatery.name" ng-blur="patchEatery('name')">
     </div>
+  </div>
+  <div class="item item-body">
+    <img class="full-image" src-key="eatery.background">
+    <a class="btn-ovarlay change-background" on-tap="getPhoto()">
+      <i class="icon ion-ios7-camera"></i>
+    </a>
 
-  </ion-content>
-
-  <div class="bar bar-footer">
-    <div class="dh dh-select">
-      <select ng-model="eatery.$shift" class="dh" ng-options="shift.time for shift in eatery.$shifts">
-      </select>
+    <div class="editable-text">
+      <textarea msd-elastic ng-model="eatery.info" ng-blur="patchEatery('info')"></textarea>
     </div>
-    <p class="title">{{eatery.$shift.price? '¥'+eatery.$shift.price+'每位':'免费'}}</p>
-    <button class="button button-clear button-balanced"
-    ng-disabled="eatery.$shift.capacity - eatery.$shift.orders.length <= 0"
-    >
-      我要搭伙
+    <p>
+      <a href class="subdued" ng-click="gotoComments()">
+        <i class="icon ion-ios7-chatboxes"></i>
+        {{eatery.$comments.length||0}} 评论
+      </a>
+    </p>
+  </div>
+</div>
+<div class="list card">
+  <div class="item item-button-right">
+    <h2>招牌菜</h2>
+    <button class="button button-outline button-positive" on-tap="addDish()">
+      <i class="icon ion-plus"></i>
     </button>
   </div>
-
-</ion-view>
+  <div class="item item-body" ng-repeat="dish in eatery.dishes">
+    <img class="full-image" src-key="dish.image">
+    <a class="btn-ovarlay change-background" on-tap="changeDishPhoto(dish)">
+      <i class="icon ion-ios7-camera"></i>
+    </a>
+    <h2>
+      <div class="editable-text">
+        <textarea msd-elastic ng-model="dish.name" ng-blur="saveDish(dish)"></textarea>
+      </div>
+    </h2>
+    <p>
+      <div class="editable-text">
+        <textarea msd-elastic ng-model="dish.info" ng-blur="saveDish(dish)"></textarea>
+      </div>
+    </p>
+    <div class="padding">
+      <button class="button button-block button-assertive" on-tap="deleteDish(dish)">删除菜肴</button>
+    </div>
+  </div>
+  <div class="item">
+    <h3>关于我</h3>
+  </div>
+  <div class="item item-avatar">
+    <img src-key="eatery.postBy.avatar">
+    <h2>{{eatery.postBy.name}}</h2>
+  </div>
+  
+</div>
